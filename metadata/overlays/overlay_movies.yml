@@ -206,7 +206,7 @@ overlays:
       horizontal_offset: 0
       vertical_align: top
       vertical_offset: 0
-      file: config/metadata/overlays/images/low_quality_backdrop_high.png
+      file: config/metadata/overlays/images/low_quality_backdrop_xsmall.png
     plex_all: true
     filters:
       filepath.regex: 
@@ -226,7 +226,7 @@ overlays:
       horizontal_offset: 0
       vertical_align: top
       vertical_offset: 0
-      file: config/metadata/overlays/images/low_quality.png
+      file: config/metadata/overlays/images/low_quality_xsmall.png
     plex_all: true
     filters:
       filepath.regex: 
