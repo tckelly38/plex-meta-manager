@@ -195,25 +195,25 @@ overlays:
       any:
         resolution: 4k
 
-  low_quality_backdrop:
-    suppress_overlays:
-      - DolbyAtmos
-      - 4K_DV
-      - 4K
-    overlay:
-      name: low_quality_backdrop
-      horizontal_align: center
-      horizontal_offset: 0
-      vertical_align: top
-      vertical_offset: 0
-      file: config/metadata/overlays/images/low_quality_backdrop_xsmall.png
-    plex_all: true
-    filters:
-      filepath.regex: 
-      - '(?i)\b(HCS|HC)\b'
-      - '(?i)\b(HDTS|HDTC|TELESYNC)\b'
-      - '\b(TS)\b'
-      - '(?i)\b(HQ|HD)?CAM(Rip)?\b'
+  # low_quality_backdrop:
+  #   suppress_overlays:
+  #     - DolbyAtmos
+  #     - 4K_DV
+  #     - 4K
+  #   overlay:
+  #     name: low_quality_backdrop
+  #     horizontal_align: center
+  #     horizontal_offset: 0
+  #     vertical_align: top
+  #     vertical_offset: 0
+  #     file: config/metadata/overlays/images/low_quality_backdrop_xsmall.png
+  #   plex_all: true
+  #   filters:
+  #     filepath.regex: 
+  #     - '(?i)\b(HCS|HC)\b'
+  #     - '(?i)\b(HDTS|HDTC|TELESYNC)\b'
+  #     - '\b(TS)\b'
+  #     - '(?i)\b(HQ|HD)?CAM(Rip)?\b'
 
   low_quality:
     suppress_overlays:
@@ -222,11 +222,11 @@ overlays:
       - 4K
     overlay:
       name: low_quality
-      horizontal_align: center
+      horizontal_align: left
       horizontal_offset: 0
       vertical_align: top
       vertical_offset: 0
-      file: config/metadata/overlays/images/low_quality_xsmall.png
+      file: config/metadata/overlays/images/low_quality_banner_small.png
     plex_all: true
     filters:
       filepath.regex: 
