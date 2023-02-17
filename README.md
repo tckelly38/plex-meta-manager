@@ -1,2 +1,2 @@
 # plex-meta-manager
-![image](https://user-images.githubusercontent.com/10914858/219525467-b06d2368-3b1c-42cd-b17b-3e80fc665dee.png)
+![image](https://user-images.githubusercontent.com/10914858/219525795-304bc44c-73ed-402a-a2ff-6348b26aa6df.png)
