@@ -1,89 +1,9 @@
-templates:
-  Streaming:
-    optional:
-      - overlay_level
-      - use_<<slug>>
-    default:
-      overlay: <<overlay_name>>
-      horizontal_offset: 25
-      horizontal_align: left
-      vertical_offset: 25
-      vertical_align: top
-    allowed_library_types: <<use_<<slug>>>>
-    ignore_blank_results: true
-    overlay:
-      name: <<overlay_name>>
-      url: https://raw.githubusercontent.com/FatPancake-14/plex-meta-manager/main/config/overlays/streaming/<<overlay>>.png
-      group: streaming
-      weight: <<weight>>
-      horizontal_offset: <<horizontal_offset>>
-      horizontal_align: <<horizontal_align>>
-      vertical_offset: <<vertical_offset>>
-      vertical_align: <<vertical_align>>
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/<<key>>-movies
-
 overlays:
-  # Netflix:
-  #   template:
-  #     - name: Streaming
-  #       weight: 200
-  #       slug: 213
-  #       key: netflix
-
-  # Amazon_Prime_Video:
-  #   template:
-  #     - name: Streaming
-  #       weight: 190
-  #       slug: 1024
-  #       key: amazon
-
-  # Disney+:
-  #   template:
-  #     - name: Streaming
-  #       weight: 180
-  #       slug: 2739
-  #       key: disney
-
-  # HBO:
-  #   template:
-  #     - name: Streaming
-  #       weight: 170
-  #       slug: 49
-  #       key: hbomax
-
-  # Hulu:
-  #   template:
-  #     - name: Streaming
-  #       weight: 150
-  #       slug: 453
-  #       key: hulu
-
-  # Paramount:
-  #   template:
-  #     - name: Streaming
-  #       weight: 140
-  #       slug: 4330
-  #       key: paramount
-
-  # AppleTV:
-  #   template:
-  #     - name: Streaming
-  #       weight: 130
-  #       slug: 2552
-  #       key: appletv
-
-  # Peacock:
-  #   template:
-  #     - name: Streaming
-  #       weight: 120
-  #       slug: 3353
-  #       key: peacock
-
   backshadow:
     overlay:
       name: backshadow
-      horizontal_offset: 349
-      horizontal_align: center
+      horizontal_offset: 24
+      horizontal_align: right
       vertical_offset: 49
       vertical_align: bottom
       file: config/metadata/overlays/images/backdrop.png
@@ -92,25 +12,26 @@ overlays:
         critic_rating.gte: 0.1
         critic_rating.lte: 10.0
 
-  rating_high:
+  rating_rotten_high:
     overlay:
-      name: Rating_High_BG
-      group: tomato
+      name: rating_rotten_high
+      group: rating
       weight: 30
-      horizontal_offset: 350
-      horizontal_align: center
+      horizontal_offset: 25
+      horizontal_align: right
       vertical_offset: 50
       vertical_align: bottom
       file: config/metadata/overlays/images/rt_cf_med_res.png
     mdblist_list: https://mdblist.com/lists/plexmetamanager/certifiedfreshmovies
+
         
-  rating_mid:
+  rating_rotten_mid:
     overlay:
-      name: Rating_Mid_BG
-      group: tomato
+      name: rating_rotten_mid
+      group: rating
       weight: 20
-      horizontal_offset: 350
-      horizontal_align: center
+      horizontal_offset: 25
+      horizontal_align: right
       vertical_offset: 50
       vertical_align: bottom
       file: config/metadata/overlays/images/rt_fresh_med_res.png
@@ -118,14 +39,14 @@ overlays:
       all:
         critic_rating.gte: 6.0
         critic_rating.lte: 10.0
-
-  rating_low:
+  
+  rating_rotten_low:
     overlay:
-      name: Rating_Low_BG
-      group: tomato
+      name: rating_rotten_low
+      group: rating
       weight: 10
-      horizontal_offset: 350
-      horizontal_align: center
+      horizontal_offset: 25
+      horizontal_align: right
       vertical_offset: 50
       vertical_align: bottom
       file: config/metadata/overlays/images/rt_rotten_med_res.png
@@ -136,21 +57,34 @@ overlays:
 
   critic_rating:
     overlay:
-      group: rating_text
-      weight: 10
       rating_type: critic_rating
       name: text(<<critic_rating%>>%)
-      horizontal_offset: 398
-      horizontal_align: center
-      vertical_offset: 86
+      horizontal_offset: 28
+      horizontal_align: right
+      vertical_offset: 85
       vertical_align: bottom
       font: config/metadata/overlays/fonts/Adlib.ttf
-      font_size: 60
+      font_size: 62
       font_color: "#282a2d"
     plex_search:
       all:
         critic_rating.gte: 0.1
-        critic_rating.lte: 10.0
+        critic_rating.lte: 9.9
+
+  critic_rating_max:
+    overlay:
+      rating_type: critic_rating
+      name: text(<<critic_rating%>>%)
+      horizontal_offset: 28
+      horizontal_align: right
+      vertical_offset: 88
+      vertical_align: bottom
+      font: config/metadata/overlays/fonts/Adlib.ttf
+      font_size: 55
+      font_color: "#282a2d"
+    plex_search:
+      all:
+        critic_rating.gte: 10.0
 
   DolbyAtmos:
     overlay:
@@ -194,26 +128,6 @@ overlays:
     plex_search:
       any:
         resolution: 4k
-
-  # low_quality_backdrop:
-  #   suppress_overlays:
-  #     - DolbyAtmos
-  #     - 4K_DV
-  #     - 4K
-  #   overlay:
-  #     name: low_quality_backdrop
-  #     horizontal_align: center
-  #     horizontal_offset: 0
-  #     vertical_align: top
-  #     vertical_offset: 0
-  #     file: config/metadata/overlays/images/low_quality_backdrop_xsmall.png
-  #   plex_all: true
-  #   filters:
-  #     filepath.regex: 
-  #     - '(?i)\b(HCS|HC)\b'
-  #     - '(?i)\b(HDTS|HDTC|TELESYNC)\b'
-  #     - '\b(TS)\b'
-  #     - '(?i)\b(HQ|HD)?CAM(Rip)?\b'
 
   low_quality:
     suppress_overlays:

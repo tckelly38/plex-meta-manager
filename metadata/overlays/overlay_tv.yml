@@ -1,0 +1,194 @@
+templates: 
+  critic_rating:
+    overlay:
+      rating_type: critic_rating
+      name: text(<<critic_rating>>)
+      horizontal_offset: 45
+      horizontal_align: right
+      vertical_offset: 80
+      vertical_align: bottom
+      font: config/metadata/overlays/fonts/Impact.ttf
+      font_size: 79
+      font_color: "#282a2d"
+    builder_level: <<level>>
+    plex_search:
+      all:
+        critic_rating.gte: 0.1
+        critic_rating.lte: 10.0
+  
+  backshadow:
+    overlay:
+      name: backshadow_<<level>>
+      horizontal_offset: 24
+      horizontal_align: right
+      vertical_offset: 49
+      vertical_align: bottom
+      file: config/metadata/overlays/images/backdrop.png
+    builder_level: <<level>>
+    plex_search:
+      all:
+        critic_rating.gte: 0.1
+        critic_rating.lte: 10.0
+
+  rating_imdb:
+    overlay:
+      name: rating_imdb_<<level>>
+      horizontal_offset: 25
+      horizontal_align: right
+      vertical_offset: 50
+      vertical_align: bottom
+      file: config/metadata/overlays/images/imdb_rating.png
+    builder_level: <<level>>
+    plex_search:
+      all:
+        critic_rating.gte: 0.1
+        critic_rating.lte: 10.0
+
+  DolbyAtmos:
+    overlay:
+      name: DolbyAtmos_<<level>>
+      horizontal_offset: 0
+      horizontal_align: left
+      vertical_offset: 0
+      vertical_align: top
+      file: config/metadata/overlays/images/dolbyatmos_white.png
+    ignore_blank_results: true
+    builder_level: <<level>>
+    plex_all: true
+    filters:
+      filepath.regex: '(?i)\batmos(\b|\d)'
+
+  4K_DV:
+    overlay:
+      name: 4K_DV_<<level>>
+      group: resolution
+      weight: 30
+      horizontal_offset: 0
+      horizontal_align: left
+      vertical_offset: 0
+      vertical_align: top
+      url: https://raw.githubusercontent.com/FatPancake-14/plex-meta-manager/main/config/overlays/4K/4K_DV_v02.png
+    builder_level: <<level>>
+    plex_search:
+      all:
+        resolution: 4K
+    filters:
+      has_dolby_vision: true
+
+  4K:
+    overlay:
+      name: 4K_<<level>>
+      group: resolution
+      weight: 20
+      horizontal_offset: 0
+      horizontal_align: left
+      vertical_offset: 0
+      vertical_align: top
+      url: https://raw.githubusercontent.com/FatPancake-14/plex-meta-manager/main/config/overlays/4K/4K_v04.png
+    builder_level: <<level>>
+    plex_search:
+      any:
+        resolution: 4k
+
+  Force-Filter:
+    overlay:
+      name: Force-Filter_<<level>>
+      url: https://raw.githubusercontent.com/FatPancake-14/plex-meta-manager/main/config/overlays/Force-Filter.png
+      vertical_align: bottom
+    builder_level: <<level>>
+    plex_search:
+      all:
+        year.not: 1800
+    filters:
+      has_dolby_vision: true
+
+overlays:
+  backshadow_show:
+    template:
+      - name: backshadow
+        level: show
+
+  backshadow_episode:
+    template:
+      - name: backshadow
+        level: episode
+
+  rating_imdb_show:
+    template:
+      - name: rating_imdb
+        level: show
+
+  rating_imdb_episode:
+    template:
+      - name: rating_imdb
+        level: episode
+
+  critic_rating_show:
+    template:
+      - name: critic_rating
+        level: show
+
+  critic_rating_episode:
+    template:
+      - name: critic_rating
+        level: episode
+
+  DolbyAtmos_show:
+    template:
+      - name: DolbyAtmos
+        level: show
+
+  DolbyAtmos_season:
+    template:
+      - name: DolbyAtmos
+        level: season
+
+  DolbyAtmos_episode:
+    template:
+      - name: DolbyAtmos
+        level: episode
+
+  4K_DV_show:
+    template:
+      - name: 4K_DV
+        level: show
+
+  4K_DV_season:
+    template:
+      - name: 4K_DV
+        level: season
+
+  4K_DV_episode:
+    template:
+      - name: 4K_DV
+        level: episode
+
+  4K_show:
+    template:
+      - name: 4K
+        level: show
+
+  4K_season:
+    template:
+      - name: 4K
+        level: season
+
+  4K_episode:
+    template:
+      - name: 4K
+        level: episode
+ 
+  Force-Filter_show:
+    template:
+      - name: Force-Filter
+        level: show
+
+  Force-Filter_season:
+    template:
+      - name: Force-Filter
+        level: season
+
+  Force-Filter_episode:
+    template:
+      - name: Force-Filter
+        level: episode
